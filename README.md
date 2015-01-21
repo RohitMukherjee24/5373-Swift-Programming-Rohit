@@ -1,4 +1,4 @@
 # 5373-Swift-Programming-Rohit
-First name : Rohit \n
-Last name : Mukherjee \n
+First name : Rohit ,
+Last name : Mukherjee ,
 Email ID : rohitjee24@gmail.com
