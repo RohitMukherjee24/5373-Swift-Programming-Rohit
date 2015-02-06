@@ -82,18 +82,11 @@ class ViewController: UIViewController {
                     //or
                     
                     for (key,val) in json{
-        
                         println("\(key):\(val)")
                     }
-                   
-                    
-                    //for accessing single values
-                            println(json["whitesmoke"])
-                    
-                    
-                }
-                
-                //Question: How do I access a single value directly?
+                    // For accessing a single value
+                    println(json["darkorchid"])
+		}
         }
         
         
