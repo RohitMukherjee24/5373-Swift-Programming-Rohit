@@ -16,35 +16,51 @@ class LocationDetailsViewController: UITableViewController {
   @IBOutlet weak var longitudeLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+ 
 
   var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
   var placemark: CLPlacemark?
-  var managedObjectContext: NSManagedObjectContext!
+    var managedObjectContext: NSManagedObjectContext!
 
   var descriptionText = ""
   var categoryName = "No Category"
-  var date = NSDate()
-
-  @IBAction func done() {
-    let hudView = HudView.hudInView(navigationController!.view, animated: true)
-    hudView.text = "Tagged"
-    let location = NSEntityDescription.insertNewObjectForEntityForName( "Location", inManagedObjectContext: managedObjectContext) as Location
-    location.locationDescription = descriptionText
-    location.category = categoryName
-    location.latitude = coordinate.latitude
-    location.longitude = coordinate.longitude
-    location.date = date
-    location.placemark = placemark
     
-    var error: NSError?
-    if !managedObjectContext.save(&error) {
-        println("Error: \(error)")
-        abort() }
+    var date = NSDate()
 
-    afterDelay(0.6) {
-      self.dismissViewControllerAnimated(true, completion: nil)
+  //@IBAction func done() {
+    //let hudView = HudView.hudInView(navigationController!.view, animated: true)
+   // hudView.text = "Tagged"
+
+    
+    
+   // afterDelay(0.6) {
+   //  self.dismissViewControllerAnimated(true, completion: nil)
+   // }
+  //}
+    
+    @IBAction func done() {
+        let hudView = HudView.hudInView(navigationController!.view, animated: true)
+        hudView.text = "Tagged"
+        let location = NSEntityDescription.insertNewObjectForEntityForName( "Location", inManagedObjectContext: managedObjectContext) as Location
+        location.locationDescription = descriptionText
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        var error: NSError?
+        if !managedObjectContext.save(&error) {
+            println("Error: \(error)")
+            abort() }
+        
+        afterDelay(0.6) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
-  }
+
+    
+    
   
   @IBAction func cancel() {
     dismissViewControllerAnimated(true, completion: nil)
