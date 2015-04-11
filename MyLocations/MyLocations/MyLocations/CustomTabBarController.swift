@@ -6,13 +6,12 @@
 //  Copyright (c) 2015 mwsu. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 // This class holds the data for my model.
 class ModelData {
+    var longitude = 0.0,
     var latitude = 0.0
-    var longitudes = 0.0
 }
 
 class CustomTabBarController: UITabBarController {
